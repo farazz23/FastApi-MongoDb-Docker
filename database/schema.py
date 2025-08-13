@@ -1,4 +1,4 @@
-def individual_todo(todo) -> dict :
+def individual_todo(todo):
   return {
     "id": str(todo["_id"]),
     "title" : todo["title"],
@@ -6,5 +6,5 @@ def individual_todo(todo) -> dict :
     "status":todo["is_completed"]
   }
   
-def all_list(todos) -> list :
+def all_list(todos):
   return [individual_todo(todo) for todo in todos]

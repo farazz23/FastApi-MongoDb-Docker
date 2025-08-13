@@ -9,9 +9,13 @@ client = MongoClient(uri, server_api=ServerApi('1'))
 db = client.todo_db
 collection = db["todo_collection"]
 
-# Send a ping to confirm a successful connection
-try:
-    client.admin.command('ping')
-    print("Pinged your deployment. You successfully connected to MongoDB!")
-except Exception as e:
-    print(e)
+def connect_to_mongo():
+    try:
+        client.admin.command('ping')
+        print("✅ Connected to MongoDB!")
+    except Exception as e:
+        print(f"❌ MongoDB Connection Failed: {e}")
+
+def close_connection():
+    client.close()
+    print("❌ MongoDB Connection Closed")
